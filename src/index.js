@@ -55,12 +55,7 @@ const submitScore = async (gameID, user, score) => {
 
 // Event listener for the refresh button
 refreshButton.addEventListener('click', async () => {
-  // Create a new game if there's no game ID saved
-  if (!localStorage.getItem('gameID')) {
-    const gameID = await createGame();
-    localStorage.setItem('gameID', gameID);
-  }
-
+  
   // Refresh the scores list
   refreshScores(localStorage.getItem('gameID'));
 });
@@ -74,15 +69,18 @@ submitForm.addEventListener('submit', async (event) => {
   const user = document.querySelector('#form-name').value;
   const score = document.querySelector('#form-score').value;
 
-  // Create a new game if there's no game ID saved
-  if (!localStorage.getItem('gameID')) {
-    const gameID = await createGame();
-    localStorage.setItem('gameID', gameID);
-  }
-
   // Submit the score
   submitScore(localStorage.getItem('gameID'), user, score);
 
   // Clear the form
   submitForm.reset();
+});
+
+// Event listener on window load
+window.addEventListener('load', async () => {
+  // Create a new game if there's no game ID saved
+  if (!localStorage.getItem('gameID')) {
+    const gameID = await createGame();
+    localStorage.setItem('gameID', gameID);
+  }
 });
