@@ -47,7 +47,7 @@
 
 You can checkout the live running version of this app at the following link:
 
-https://darkxdev.github.io/Leaderboard-App/
+https://darkxdev.github.io/Leaderboard-App/src
 
 <!-- GETTING STARTED -->
 
