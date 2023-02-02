@@ -55,7 +55,6 @@ const submitScore = async (gameID, user, score) => {
 
 // Event listener for the refresh button
 refreshButton.addEventListener('click', async () => {
-  
   // Refresh the scores list
   refreshScores(localStorage.getItem('gameID'));
 });
